@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    diver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/project2?characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: ps4318
+server:
+  port: 8081
