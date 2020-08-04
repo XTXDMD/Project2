@@ -45,4 +45,11 @@ public class BaseRespVo<T> {
         baseRespVo.setErrmsg(errmsg);
         return baseRespVo;
     }
+
+    public static BaseRespVo fail(long errno,String errmsg){
+        BaseRespVo<Object> baseRespVo = new BaseRespVo<>();
+        baseRespVo.setErrno(errno);
+        baseRespVo.setErrmsg(errmsg);
+        return baseRespVo;
+    }
 }

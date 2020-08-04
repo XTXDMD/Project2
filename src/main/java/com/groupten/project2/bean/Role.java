@@ -15,7 +15,7 @@ public class Role {
 
     private Date updateTime;
 
-    private Boolean deleted;
+    private Boolean deleted = false;
 
     public Integer getId() {
         return id;

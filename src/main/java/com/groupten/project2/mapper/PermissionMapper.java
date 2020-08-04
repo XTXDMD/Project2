@@ -1,8 +1,14 @@
 package com.groupten.project2.mapper;
 
 import com.groupten.project2.bean.Permission;
+import com.groupten.project2.bean.PermissionDetail;
 import com.groupten.project2.bean.PermissionExample;
+
+import java.util.ArrayList;
 import java.util.List;
+
+import com.groupten.project2.bean.SystemPermission;
+import com.groupten.project2.bean.vo.PermissionVo;
 import org.apache.ibatis.annotations.Param;
 
 public interface PermissionMapper {
@@ -27,4 +33,13 @@ public interface PermissionMapper {
     int updateByPrimaryKeySelective(Permission record);
 
     int updateByPrimaryKey(Permission record);
+
+    PermissionVo selectPermissionByRoleId(@Param("roleId") Integer roleId);
+
+    Integer updatePermission(@Param("permissionVo") PermissionVo permissionVo);
+
+    List<SystemPermission> selectSystemPermission();
+
+    PermissionDetail selectOperationsByPId(@Param("id") String id);
+
 }

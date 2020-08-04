@@ -27,4 +27,6 @@ public interface StorageMapper {
     int updateByPrimaryKeySelective(Storage record);
 
     int updateByPrimaryKey(Storage record);
+
+    //List<Storage> selectStorageList(String name,String key,String deleted,String order,String sort,String limit);
 }

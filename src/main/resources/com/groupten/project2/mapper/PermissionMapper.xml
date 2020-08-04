@@ -225,4 +225,21 @@
       deleted = #{deleted,jdbcType=BIT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectPermissionByRoleId" resultType="com.groupten.project2.bean.vo.PermissionVo">
+      select permission as permissions from permission where role_id = #{roleId}
+  </select>
+
+  <update id="updatePermission">
+     update permission SET permission = #{permissionVo.permissions} where role_id = #{permissionVo.id}
+  </update>
+
+  <select id="selectSystemPermission" resultType="com.groupten.project2.bean.SystemPermission">
+    select id,label,permission_detail as children from cskaoyanmall_system_permission
+  </select>
+
+  <select id="selectOperationsByPId" resultType="com.groupten.project2.bean.PermissionDetail">
+    select id,label,permission_detail_operation as children from permission_detail WHERE id = #{id}
+  </select>
+
 </mapper>

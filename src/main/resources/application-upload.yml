@@ -1,0 +1,6 @@
+base:
+  url: D:\ProjectTwo\project2Real\target\classes\static
+
+spring:
+  profiles: upload
+

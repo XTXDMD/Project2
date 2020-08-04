@@ -115,7 +115,7 @@
       #{addTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{deleted,jdbcType=BIT}, 
       #{roleIds,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.groupten.project2.bean.Admin">
+  <insert id="insertSelective" parameterType="com.groupten.project2.bean.Admin" useGeneratedKeys="true" keyProperty="record.id">
     insert into cskaoyanmall_admin
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -287,5 +287,30 @@
       deleted = #{deleted,jdbcType=BIT},
       role_ids = #{roleIds,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="lastInsertId" resultType="java.lang.Integer">
+      select LAST_INSERT_ID()
+  </select>
+
+  <select id="selectRoles" resultType="java.lang.String">
+    select role_ids from cskaoyanmall_admin
+  </select>
+
+  <select id="selectPasswordByUsername" resultType="java.lang.String">
+    select password from cskaoyanmall_admin where username = #{username}
+  </select>
+
+  <select id="selectRolesByUsername" resultType="com.groupten.project2.bean.vo.AdminInfoVo">
+    select role_ids as roleIds from cskaoyanmall_admin where username = #{username}
+  </select>
+
+  <select id="selectAdminByUsername" resultType="com.groupten.project2.bean.vo.AdminInfoVo">
+    select username,password,role_ids as roleIds from cskaoyanmall_admin where username = #{username}
+  </select>
+
+  <update id="updateAdminByInfo">
+    update cskaoyanmall_admin set avatar = #{info.avatar}, password = #{info.password},username = #{info.username}, role_ids = #{info.roleIds}
+    where id = #{info.id}
   </update>
 </mapper>

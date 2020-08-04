@@ -176,7 +176,7 @@ public class StorageExample {
         }
 
         public Criteria andKeyEqualTo(String value) {
-            addCriterion("key =", value, "key");
+            addCriterion("`key` =", value, "key");
             return (Criteria) this;
         }
 

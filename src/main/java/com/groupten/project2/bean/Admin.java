@@ -1,7 +1,10 @@
 package com.groupten.project2.bean;
 
+import lombok.Data;
+
 import java.util.Date;
 
+@Data
 public class Admin {
     private Integer id;
 
@@ -19,7 +22,7 @@ public class Admin {
 
     private Date updateTime;
 
-    private Boolean deleted;
+    private Boolean deleted = false;
 
     private String roleIds;
 

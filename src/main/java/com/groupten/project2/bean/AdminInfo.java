@@ -17,6 +17,6 @@ public class AdminInfo {
     private String name;
     private String avatar;
     private List<String> roles;
-    private List<String> perms;
+    private String[] perms;
 
 }
